@@ -27,13 +27,9 @@ export default function App() {
     }
   };
 
-  const countTotalFeedback = () => {
-    return good + neutral + bad;
-  };
-
-  const countPositiveFeedbackPercentage = () => {
-    return Math.round((good * 100) / countTotalFeedback()) || 0;
-  };
+  const countTotalFeedback = good + neutral + bad;
+  const countPositiveFeedbackPercentage =
+    Math.round((good * 100) / countTotalFeedback) || 0;
 
   return (
     <Wrapper>
@@ -44,7 +40,7 @@ export default function App() {
         ></FeedbackOptions>
       </Section>
       <Section title="Statistic">
-        {countTotalFeedback() > 0 ? (
+        {countTotalFeedback > 0 ? (
           <Statistics
             good={good}
             neutral={neutral}
